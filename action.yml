@@ -7,6 +7,11 @@ runs:
       uses: actions/checkout@v4
       with:
         ref: ${{ github.head_ref }}
+    - name: Cache pre-commit
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pre-commit/
+        key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
     - id: pre-commit
       name: Run pre-commit
       run: pipx run pre-commit run --show-diff-on-failure --color=always -a
