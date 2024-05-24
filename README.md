@@ -14,7 +14,7 @@ name: Pre-commit
 on:
   push:
   pull_request:
-  merge_queue:
+  merge_group:
 jobs:
   pre_commit:
     permissions:
