@@ -2,7 +2,7 @@
 
 Run pre-commit on the head reference. If it is triggered by a PR, apply and commit the autofix.
 
-> ![NOTE]
+> [!NOTE]
 > GitHub Actions runs will [not be triggered](https://github.com/orgs/community/discussions/25702) with the autofix commit. In this case, one can close and reopen the PR to manually trigger the GitHub Actions runs.
 
 `contents: write` permission is required to push autofix commits.
