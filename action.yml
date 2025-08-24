@@ -16,7 +16,7 @@ runs:
       uses: astral-sh/setup-uv@v4
     - id: pre-commit
       name: Run pre-commit
-      run: uvx pre-commit run --show-diff-on-failure --color=always -a
+      run: uvx --with pre-commit-uv pre-commit run --show-diff-on-failure --color=always -a
       continue-on-error: true
       shell: bash
     - uses: stefanzweifel/git-auto-commit-action@v5
