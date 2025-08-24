@@ -19,7 +19,7 @@ runs:
       run: uvx --with pre-commit-uv pre-commit run --show-diff-on-failure --color=always -a
       continue-on-error: true
       shell: bash
-    - uses: stefanzweifel/git-auto-commit-action@v5
+    - uses: stefanzweifel/git-auto-commit-action@v6
       with:
         commit_message: "style: apply pre-commit fixes"
       if: github.event_name == 'pull_request' && steps.pre-commit.outcome != 'success'
