@@ -26,4 +26,3 @@ runs:
     - run: echo pre-commit failed; exit 1
       if: steps.pre-commit.outcome != 'success'
       shell: bash
-
