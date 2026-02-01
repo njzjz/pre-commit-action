@@ -19,7 +19,7 @@ jobs:
   pre_commit:
     permissions:
       contents: write
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - name: Run pre-commit
         uses: njzjz/pre-commit-action@master
