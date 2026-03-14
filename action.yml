@@ -4,13 +4,13 @@ runs:
   using: composite
   steps:
     - name: Checkout (same-repo PR)
-      if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+      if: github.event_name == 'pull_request' && (! github.event.pull_request.head.repo.fork)
       uses: actions/checkout@v6
       with:
         ref: ${{ github.head_ref }}
 
     - name: Checkout (fork PR / non-PR)
-      if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
+      if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork
       uses: actions/checkout@v6
 
     - name: Cache pre-commit
@@ -31,7 +31,7 @@ runs:
     - uses: stefanzweifel/git-auto-commit-action@v7
       with:
         commit_message: "style: apply pre-commit fixes"
-      if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && steps.pre-commit.outcome != 'success'
+      if: github.event_name == 'pull_request' && (! github.event.pull_request.head.repo.fork) && steps.pre-commit.outcome != 'success'
 
     - run: echo pre-commit failed; exit 1
       if: steps.pre-commit.outcome != 'success'
