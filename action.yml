@@ -5,13 +5,13 @@ runs:
   steps:
     - name: Checkout (same-repo PR)
       if: github.event_name == 'pull_request' && (! github.event.pull_request.head.repo.fork)
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
       with:
         ref: ${{ github.head_ref }}
 
     - name: Checkout (fork PR / non-PR)
       if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
 
     - name: Cache pre-commit
       uses: actions/cache@v5
