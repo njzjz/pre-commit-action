@@ -14,7 +14,7 @@ runs:
       uses: actions/checkout@v6
 
     - name: Cache pre-commit
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       with:
         path: ~/.cache/prek/
         key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
