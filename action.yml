@@ -20,7 +20,7 @@ runs:
         key: pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
 
     - name: Install the latest version of uv
-      uses: astral-sh/setup-uv@v10.3.0
+      uses: astral-sh/setup-uv@v10.3.1
 
     - id: pre-commit
       name: Run pre-commit
